@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">appchitieu</string>
+
+    <!-- Các chuỗi khác -->
+    <string name="nav_open">Open Drawer</string>
+    <string name="nav_close">Close Drawer</string>
+
+</resources>
