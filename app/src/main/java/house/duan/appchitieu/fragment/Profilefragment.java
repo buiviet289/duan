@@ -23,7 +23,7 @@ public class Profilefragment extends Fragment {
 
         // Customize content
         TextView textView = view.findViewById(R.id.text_profile);
-        textView.setText("This is your profile!");
+
 
         return view;
     }

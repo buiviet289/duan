@@ -4,7 +4,13 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:background="#81B9E6">
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/darius"
+        android:padding="8dp"
+        >
     <!-- Header Section -->
     <TextView
         android:id="@+id/date_text"
@@ -47,7 +53,7 @@
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
     </LinearLayout>
-
+</LinearLayout>
     <!-- Budget Setting Section -->
     <TextView
         android:id="@+id/budget_setting_text"

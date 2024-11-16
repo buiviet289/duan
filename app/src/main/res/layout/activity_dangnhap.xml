@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".dangnhap"
-    android:background="#81B9E6"
+
     android:gravity="bottom">
 
     <TextView
