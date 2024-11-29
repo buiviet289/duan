@@ -63,14 +63,6 @@
 
 
 
-    <!-- Nút thêm phân loại mới, đặt ở cuối màn hình -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="+ THÊM PHÂN LOẠI MỚI"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        android:gravity="center"
 
-        android:padding="16dp" />
+
 </LinearLayout>
