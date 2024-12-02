@@ -1,11 +1,32 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/nav_settings"
-        android:icon="@drawable/ic_caidat"
-        android:title="cài đặt" />
 
     <item
-        android:id="@+id/nav_dangxuat"
-        android:icon="@drawable/dangxuat"
-        android:title="Đăng xuất" />
+        android:id="@+id/nav_trangchu"
+        android:title="Trang chủ"
+        android:icon="@drawable/ic_home" />
+    <item
+        android:id="@+id/nav_bieudo"
+        android:title="Biểu đồ"
+        android:icon="@drawable/ic_profile"/>
+
+    <item android:title="Cài Đặt">
+        <menu>
+            <item
+                android:id="@+id/nav_settings"
+                android:icon="@drawable/ic_caidat"
+                android:title="cài đặt" />
+        </menu>
+    </item>
+    <item android:title="Người dùng">
+        <menu>
+            <item
+                android:id="@+id/nav_doimatkhau"
+                android:icon="@drawable/ic_repass"
+                android:title="Đổi Mật Khẩu" />
+            <item
+                android:id="@+id/nav_dangxuat"
+                android:icon="@drawable/dangxuat"
+                android:title="Đăng xuất" />
+        </menu>
+    </item>
 </menu>

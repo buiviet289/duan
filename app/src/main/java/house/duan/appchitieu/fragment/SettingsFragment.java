@@ -22,7 +22,7 @@ import house.duan.appchitieu.R;
 public class SettingsFragment extends Fragment {
     private Switch switchDarkMode;
     private Spinner spinnerLanguage;
-    private Button btnPersonalInfo, btnChangePassword;
+//    private Button btnPersonalInfo, btnChangePassword;
 
     @Nullable
     @Override
@@ -33,8 +33,6 @@ public class SettingsFragment extends Fragment {
         // Ánh xạ view
         switchDarkMode = view.findViewById(R.id.switch_dark_mode);
         spinnerLanguage = view.findViewById(R.id.spinner_language);
-        btnPersonalInfo = view.findViewById(R.id.btn_personal_info);
-        btnChangePassword = view.findViewById(R.id.btn_change_password);
 
         // Dark mode toggle
         SharedPreferences prefs = requireContext().getSharedPreferences("Settings", requireContext().MODE_PRIVATE);
@@ -66,17 +64,17 @@ public class SettingsFragment extends Fragment {
             public void onNothingSelected(AdapterView<?> parent) {}
         });
 
-        // Personal Info Button
-        btnPersonalInfo.setOnClickListener(v -> {
-            // Chuyển đến trang thông tin cá nhân
-            Toast.makeText(requireContext(), "Mở trang thông tin cá nhân", Toast.LENGTH_SHORT).show();
-        });
-
-        // Change Password Button
-        btnChangePassword.setOnClickListener(v -> {
-            // Chuyển đến trang đổi mật khẩu
-            Toast.makeText(requireContext(), "Mở trang đổi mật khẩu", Toast.LENGTH_SHORT).show();
-        });
+//        // Personal Info Button
+//        btnPersonalInfo.setOnClickListener(v -> {
+//            // Chuyển đến trang thông tin cá nhân
+//            Toast.makeText(requireContext(), "Mở trang thông tin cá nhân", Toast.LENGTH_SHORT).show();
+//        });
+//
+//        // Change Password Button
+//        btnChangePassword.setOnClickListener(v -> {
+//            // Chuyển đến trang đổi mật khẩu
+//            Toast.makeText(requireContext(), "Mở trang đổi mật khẩu", Toast.LENGTH_SHORT).show();
+//        });
 
         return view;
     }

@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class QuanLyChiTieuSqlite extends SQLiteOpenHelper {
+public class QuanLyNguoiDungSqlite extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "QLCT.db";
     private static final int DATABASE_VERSION = 1;
@@ -16,7 +16,7 @@ public class QuanLyChiTieuSqlite extends SQLiteOpenHelper {
     private static final String COLUMN_USERNAME = "username";
     private static final String COLUMN_PASSWORD = "password";
 
-    public QuanLyChiTieuSqlite(Context context) {
+    public QuanLyNguoiDungSqlite(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
@@ -58,5 +58,6 @@ public class QuanLyChiTieuSqlite extends SQLiteOpenHelper {
         db.close();
         return exists;
     }
+
 
 }

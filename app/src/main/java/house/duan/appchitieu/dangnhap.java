@@ -9,13 +9,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import house.duan.appchitieu.database.QuanLyChiTieuSqlite;
+import house.duan.appchitieu.database.QuanLyNguoiDungSqlite;
 
 public class dangnhap extends AppCompatActivity {
 
     private EditText etUsername, etPassword;
     private Button btnLogin, btnDangki;
-    private QuanLyChiTieuSqlite dbHelper;
+    private QuanLyNguoiDungSqlite dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,7 @@ public class dangnhap extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
         btnDangki = findViewById(R.id.btnDangki);
 
-        dbHelper = new QuanLyChiTieuSqlite(this);
+        dbHelper = new QuanLyNguoiDungSqlite(this);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override

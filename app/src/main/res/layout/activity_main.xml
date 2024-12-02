@@ -1,25 +1,40 @@
-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/drawer_layout"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:id="@+id/drawer_layout"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start"
+    android:background="#E8F9FD">
 
     <!-- Main content -->
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <!-- Add Toolbar here -->
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-        android:title="Quản lý chi tiêu"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <include layout="@layout/toolbar" />
 
-            android:titleTextColor="#fff"/>
+            <LinearLayout
+                android:id="@+id/maincontent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+        </LinearLayout>
 
         <!-- FrameLayout for Fragments -->
+
         <FrameLayout
             android:id="@+id/nav_host_fragment"
             android:layout_width="match_parent"
@@ -33,13 +48,27 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             app:menu="@menu/bottom_nav_menu" />
+
     </RelativeLayout>
 
-    <!-- Navigation Drawer -->
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:menu="@menu/drawer_menu" />
+        android:id="@+id/nav_view"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/drawer_menu"
+        app:itemIconTint="#090606"
+        app:itemTextColor="#000000"
+        style="@android:style/Animation"
+        android:background="#E1FFEE"/>
+<!--    <com.google.android.material.navigation.NavigationView-->
+<!--        android:id="@+id/nav_view"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_gravity="start"-->
+<!--        app:headerLayout="@layout/nav_header"-->
+<!--        app:menu="@menu/drawer_menu" />-->
+    <!-- Navigation Drawer -->
+
 </androidx.drawerlayout.widget.DrawerLayout>
