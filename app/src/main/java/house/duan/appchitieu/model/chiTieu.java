@@ -1,6 +1,9 @@
 package house.duan.appchitieu.model;
 
-public class chiTieu {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class chiTieu implements Parcelable {
     private int id;
     private String name;
     private double price;
@@ -22,6 +25,40 @@ public class chiTieu {
         this.note = note;
     }
 
+    // Phương thức đọc dữ liệu từ Parcel
+    protected chiTieu(Parcel in) {
+        id = in.readInt();
+        name = in.readString();
+        price = in.readDouble();
+        note = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(name);
+        dest.writeDouble(price);
+        dest.writeString(note);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<chiTieu> CREATOR = new Creator<chiTieu>() {
+        @Override
+        public chiTieu createFromParcel(Parcel in) {
+            return new chiTieu(in);
+        }
+
+        @Override
+        public chiTieu[] newArray(int size) {
+            return new chiTieu[size];
+        }
+    };
+
+    // Getters và setters
     public int getId() {
         return id;
     }

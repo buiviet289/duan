@@ -1,8 +1,15 @@
 package house.duan.appchitieu.database;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import house.duan.appchitieu.model.chiTieu;
 
 public class QuuanLyChiTieuSQLite extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "QL.db";
@@ -34,4 +41,6 @@ public class QuuanLyChiTieuSQLite extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_CHITIEU);
         onCreate(db);
     }
+
+
 }

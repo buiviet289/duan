@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
+
     private void loadFragment(Fragment fragment) {
         getSupportFragmentManager()
                 .beginTransaction()

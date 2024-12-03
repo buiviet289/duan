@@ -55,22 +55,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <TextView
+                    android:id="@+id/textchitieu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Chi tiêu:"
+                    android:text="Chi tiêu: 0"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:layout_marginEnd="6dp" />
-                <TextView
-                    android:id="@+id/txt_chitieu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="-47.620"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_marginEnd="16dp" />
+
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -107,7 +100,6 @@
             android:paddingBottom="8dp" />
     </LinearLayout>
 
-
     <!-- Transaction List -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_viewChitieu"
@@ -129,5 +121,8 @@
         android:src="@drawable/ic_add"
         app:backgroundTint="#39F070" />
 
-
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </RelativeLayout>

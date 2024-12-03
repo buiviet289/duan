@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Tên chi tiêu -->
+    <EditText
+        android:id="@+id/editName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tên chi tiêu"
+        android:textSize="16sp"/>
+
+    <!-- Giá chi tiêu -->
+    <EditText
+        android:id="@+id/editPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Giá"
+        android:inputType="numberDecimal"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Ghi chú chi tiêu -->
+    <EditText
+        android:id="@+id/editNote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ghi chú"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Nút lưu -->
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lưu"
+        android:layout_marginTop="16dp"/>
+</LinearLayout>
