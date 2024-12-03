@@ -2,54 +2,82 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    >
+    android:layout_margin="10dp">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#56F6BE"
-        android:padding="5dp"
-        android:layout_margin="10dp"
-        android:orientation="vertical"
-        >
+        android:padding="10dp"
+        android:orientation="vertical">
+
+        <!-- Tên và giá -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingBottom="8dp">
+
             <TextView
                 android:id="@+id/txt_ten"
-                android:layout_width="280dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="minh"
+                android:layout_weight="1"
+                android:text="Tên chi tiêu"
                 android:textSize="16sp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/txt_gia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1349357"
                 android:textSize="16sp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
         </LinearLayout>
+
+        <!-- Ghi chú -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Ghi chú:"
                 android:textSize="14sp"
-                android:paddingRight="6dp"
-                />
+                android:paddingRight="6dp" />
+
             <TextView
                 android:id="@+id/txt_ghichu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="minh đz nhất "
-                android:textSize="14sp"
-                />
+                android:text="Ghi chú về chi tiêu"
+                android:textSize="14sp" />
         </LinearLayout>
+
+        <!-- Ngày chi tiêu -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ngày:"
+                android:textSize="14sp"
+                android:paddingRight="6dp" />
+
+            <TextView
+                android:id="@+id/txt_ngay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2024-12-05"
+                android:textSize="14sp" />
+        </LinearLayout>
+
     </LinearLayout>
 </androidx.cardview.widget.CardView>

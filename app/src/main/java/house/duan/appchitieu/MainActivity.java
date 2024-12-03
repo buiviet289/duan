@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
+
     private void loadFragment(Fragment fragment) {
         getSupportFragmentManager()
                 .beginTransaction()
@@ -130,5 +131,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         return super.onOptionsItemSelected(item);
     }
+
+
     //
 }

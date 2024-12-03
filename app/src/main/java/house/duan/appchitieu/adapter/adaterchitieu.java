@@ -7,8 +7,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -29,7 +27,7 @@ public class adaterchitieu extends RecyclerView.Adapter<adaterchitieu.CategoryVi
     public CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // Inflate layout item_category
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_chitieu, parent, false);
+                .inflate(R.layout.item_category, parent, false);
         return new CategoryViewHolder(view);
     }
 

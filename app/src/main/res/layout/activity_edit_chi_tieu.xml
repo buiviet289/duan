@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Thanh trên với nút (icon) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginVertical="40dp"
+        android:background="#00BCD4"
+        android:orientation="horizontal"
+        android:gravity="end"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_launcher_background" />
+    </LinearLayout>
+
+    <!-- Tên chi tiêu -->
+    <EditText
+        android:id="@+id/editName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tên chi tiêu"
+        android:textSize="16sp" />
+
+    <!-- Giá chi tiêu -->
+    <EditText
+        android:id="@+id/editPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Giá"
+        android:inputType="numberDecimal"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp" />
+
+    <!-- Ghi chú chi tiêu -->
+    <EditText
+        android:id="@+id/editNote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ghi chú"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp" />
+
+    <!-- Chọn ngày chi tiêu -->
+    <EditText
+        android:id="@+id/editDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Chọn ngày"
+        android:textSize="16sp"
+        android:focusable="false"
+        android:clickable="true"
+        android:layout_marginTop="8dp" />
+
+    <!-- Nút lưu -->
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lưu"
+        android:background="@drawable/button_backgroud"
+        app:backgroundTint="@null"
+        android:layout_marginTop="16dp"/>
+</LinearLayout>

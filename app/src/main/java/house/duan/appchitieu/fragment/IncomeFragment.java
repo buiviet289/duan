@@ -47,9 +47,9 @@ public class IncomeFragment extends Fragment {
 
         // Dữ liệu mẫu
         List<String> categoryList = new ArrayList<>();
-        categoryList.add("Ăn uống");
-        categoryList.add("Quần áo");
-        categoryList.add("Mua sắm");
+
+        categoryList.add("bán hàng");
+        categoryList.add("lương");
         categoryList.add("ngân hàng");
 
         // Gán Adapter vào RecyclerView
