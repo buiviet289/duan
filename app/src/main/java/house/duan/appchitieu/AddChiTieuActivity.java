@@ -37,7 +37,7 @@ public class AddChiTieuActivity extends AppCompatActivity {
         edtGhiChu = findViewById(R.id.edt_ghichu);
         txtDate = findViewById(R.id.txt_date);  // TextView hiển thị ngày
         btnAdd = findViewById(R.id.btn_add);
-        btnSelectDate = findViewById(R.id.edit_ngay);  // Button chọn ngày
+//        btnSelectDate = findViewById(R.id.edit_ngay);  // Button chọn ngày
 
         chiTieuDAO = new chiTieuDAO(this);
 
@@ -61,30 +61,49 @@ public class AddChiTieuActivity extends AppCompatActivity {
         });
 
         // Thêm chi tiêu vào cơ sở dữ liệu
-        btnAdd.setOnClickListener(v -> {
-            String ten = edtTen.getText().toString();
-            String giaStr = edtGia.getText().toString();
-            String ghiChu = edtGhiChu.getText().toString();
-
-            if (!ten.isEmpty() && !giaStr.isEmpty() && !ghiChu.isEmpty() && selectedDate != null) {
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String ten = edtTen.getText().toString();
+                String giaStr = edtGia.getText().toString();
+                String ghiChu = edtGhiChu.getText().toString();
+                String date = txtDate.getText().toString();
                 try {
                     double gia = Double.parseDouble(giaStr);
-                    chiTieu newItem = new chiTieu(ten, gia, ghiChu, selectedDate);
+                    chiTieu newItem = new chiTieu(ten, gia, ghiChu, date);
 
                     // Thêm chi tiêu vào cơ sở dữ liệu
                     boolean success = chiTieuDAO.insertItem(newItem);
-                    if (success) {
-                        Toast.makeText(this, "Chi tiêu đã được thêm!", Toast.LENGTH_SHORT).show();
+                    if (success) {Toast.makeText(AddChiTieuActivity.this, "Chi tiêu đã được thêm!", Toast.LENGTH_SHORT).show();
                         finish();  // Trở lại màn hình trước
                     } else {
-                        Toast.makeText(this, "Thêm chi tiêu thất bại. Vui lòng thử lại.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddChiTieuActivity.this, "Thêm chi tiêu thất bại. Vui lòng thử lại.", Toast.LENGTH_SHORT).show();
                     }
                 } catch (NumberFormatException e) {
                     // Nếu không phải định dạng số hợp lệ, hiển thị thông báo lỗi
-                    Toast.makeText(this, "Vui lòng nhập giá trị hợp lệ cho trường giá.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddChiTieuActivity.this, "Vui lòng nhập giá trị hợp lệ cho trường giá.", Toast.LENGTH_SHORT).show();
                 }
-            } else {
-                Toast.makeText(this, "Vui lòng điền đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
+
+//            if (!ten.isEmpty() && !giaStr.isEmpty() && !ghiChu.isEmpty() && (date == null || date.isEmpty() ))
+//            {
+//                try {
+//                    double gia = Double.parseDouble(giaStr);
+//                    chiTieu newItem = new chiTieu(ten, gia, ghiChu, date);
+//
+//                    // Thêm chi tiêu vào cơ sở dữ liệu
+//                    boolean success = chiTieuDAO.insertItem(newItem);
+//                    if (success) {Toast.makeText(this, "Chi tiêu đã được thêm!", Toast.LENGTH_SHORT).show();
+//                        finish();  // Trở lại màn hình trước
+//                    } else {
+//                        Toast.makeText(this, "Thêm chi tiêu thất bại. Vui lòng thử lại.", Toast.LENGTH_SHORT).show();
+//                    }
+//                } catch (NumberFormatException e) {
+//                    // Nếu không phải định dạng số hợp lệ, hiển thị thông báo lỗi
+//                    Toast.makeText(this, "Vui lòng nhập giá trị hợp lệ cho trường giá.", Toast.LENGTH_SHORT).show();
+//                }
+//            } else {
+//                Toast.makeText(this, "Vui lòng điền đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
+//            }
             }
         });
     }

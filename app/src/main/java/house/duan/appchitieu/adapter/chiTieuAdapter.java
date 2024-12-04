@@ -39,7 +39,10 @@ public class chiTieuAdapter extends RecyclerView.Adapter<chiTieuAdapter.ItemView
     @Override
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.item_view, parent, false);
+
+
         return new ItemViewHolder(view);
+
     }
 
     @Override
@@ -49,10 +52,11 @@ public class chiTieuAdapter extends RecyclerView.Adapter<chiTieuAdapter.ItemView
         holder.name.setText(item.getName() != null ? item.getName() : "Không có tên");
         holder.price.setText(String.valueOf(item.getPrice()));
         holder.note.setText(item.getNote() != null ? item.getNote() : "Không có ghi chú");
-        holder.date.setText(item.getDate() != null ? item.getDate() : "Chưa chọn ngày");
+        holder.ngay.setText(item.getDate() != null ? item.getDate() : "Chưa chọn ngày");
+
 
         // Sự kiện chọn ngày cho TextView date
-        holder.date.setOnClickListener(v -> {
+        holder.ngay.setOnClickListener(v -> {
             Calendar calendar = Calendar.getInstance();
 
             // Nếu item có ngày hiện tại, đặt làm ngày mặc định cho DatePickerDialog
@@ -77,7 +81,7 @@ public class chiTieuAdapter extends RecyclerView.Adapter<chiTieuAdapter.ItemView
                 String selectedDate = dateFormat.format(calendar.getTime());
 
                 // Hiển thị ngày đã chọn vào TextView
-                holder.date.setText(selectedDate);
+                holder.ngay.setText(selectedDate);
 
                 // Cập nhật ngày vào đối tượng chiTieu
                 item.setDate(selectedDate);
@@ -125,14 +129,15 @@ public class chiTieuAdapter extends RecyclerView.Adapter<chiTieuAdapter.ItemView
 
     // ViewHolder để giữ các thành phần
     public static class ItemViewHolder extends RecyclerView.ViewHolder {
-        TextView name, price, note, date;
+        TextView name, price, note, ngay;
 
         public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.txt_ten);
             price = itemView.findViewById(R.id.txt_gia);
             note = itemView.findViewById(R.id.txt_ghichu);
-            date = itemView.findViewById(R.id.txt_ngay);
+            ngay = itemView.findViewById(R.id.txt_ngay);
         }
     }
+
 }

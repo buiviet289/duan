@@ -1,9 +1,11 @@
 package house.duan.appchitieu.dao;
 
 import static android.app.DownloadManager.COLUMN_ID;
+import static house.duan.appchitieu.database.QuuanLyChiTieuSQLite.COLUMN_DATE;
 import static house.duan.appchitieu.database.QuuanLyChiTieuSQLite.COLUMN_NAME;
 import static house.duan.appchitieu.database.QuuanLyChiTieuSQLite.COLUMN_PRICE;
 import static house.duan.appchitieu.database.QuuanLyChiTieuSQLite.COLUMN_NOTE;
+import static house.duan.appchitieu.database.QuuanLyChiTieuSQLite.TABLE_CHITIEU;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -69,14 +71,13 @@ public class chiTieuDAO {
         try {
             cursor = db.rawQuery("SELECT * FROM chitieus", null);
             if (cursor.moveToFirst()) {
-                do {
-                    chiTieu item = new chiTieu(
-                            cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID)),  // Lấy id là int
-                            cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NAME)),
-                            cursor.getDouble(cursor.getColumnIndexOrThrow(COLUMN_PRICE)),
-                            cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NOTE)),
-                            cursor.getString(cursor.getColumnIndexOrThrow("ngay"))  // Lấy ngày là String
-                    );
+                do {chiTieu item = new chiTieu(
+                        cursor.getInt(cursor.getColumnIndexOrThrow("id")),  // Lấy id là int
+                        cursor.getString(cursor.getColumnIndexOrThrow("ten")),
+                        cursor.getDouble(cursor.getColumnIndexOrThrow("gia")),
+                        cursor.getString(cursor.getColumnIndexOrThrow("ghi_chu")),
+                        cursor.getString(cursor.getColumnIndexOrThrow("ngay"))  // Lấy ngày là String
+                );
                     items.add(item);
                 } while (cursor.moveToNext());
             }
@@ -88,4 +89,11 @@ public class chiTieuDAO {
         }
         return items;
     }
+
+    public Cursor getAllExpenses() {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        // Alias cột 'id' thành '_id' trong truy vấn
+        return db.rawQuery("SELECT id AS id, ten, gia, ghi_chu, ngay FROM " + TABLE_CHITIEU, null);
+    }
+
 }

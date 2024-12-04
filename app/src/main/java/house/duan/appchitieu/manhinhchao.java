@@ -45,6 +45,6 @@ public class manhinhchao extends AppCompatActivity {
                 startActivity(intent);
                 finish();  // Đóng màn hình chào
             }
-        }, 2000);  // Đợi 2000ms (2 giây)
+        }, 1200);  // Đợi 2000ms (2 giây)
     }
 }
