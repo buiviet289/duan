@@ -62,19 +62,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ngày hiện tại: "
-            android:textSize="18sp"
-            android:textColor="#000000" />
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:padding="10dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground" />
 
-        <!-- Button để chọn ngày -->
-        <Button
-            android:id="@+id/edit_ngay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Chọn ngày"
-            android:layout_marginTop="20dp"
-            android:gravity="center"/>
-
-        <!-- Nút thêm chi tiêu -->
+        <!-- Nút thêm -->
         <Button
             android:id="@+id/btn_add"
             android:layout_width="match_parent"

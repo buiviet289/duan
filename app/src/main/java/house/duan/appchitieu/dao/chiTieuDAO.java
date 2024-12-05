@@ -1,6 +1,7 @@
 package house.duan.appchitieu.dao;
 
 import static android.app.DownloadManager.COLUMN_ID;
+import static house.duan.appchitieu.database.QuuanLyChiTieuSQLite.COLUMN_DATE;
 import static house.duan.appchitieu.database.QuuanLyChiTieuSQLite.COLUMN_NAME;
 import static house.duan.appchitieu.database.QuuanLyChiTieuSQLite.COLUMN_PRICE;
 import static house.duan.appchitieu.database.QuuanLyChiTieuSQLite.COLUMN_NOTE;
@@ -71,10 +72,10 @@ public class chiTieuDAO {
             if (cursor.moveToFirst()) {
                 do {
                     chiTieu item = new chiTieu(
-                            cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID)),  // Lấy id là int
-                            cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NAME)),
-                            cursor.getDouble(cursor.getColumnIndexOrThrow(COLUMN_PRICE)),
-                            cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NOTE)),
+                            cursor.getInt(cursor.getColumnIndexOrThrow("id")),  // Thay "_id" bằng "id"
+                            cursor.getString(cursor.getColumnIndexOrThrow("ten")),
+                            cursor.getDouble(cursor.getColumnIndexOrThrow("gia")),
+                            cursor.getString(cursor.getColumnIndexOrThrow("ghi_chu")),
                             cursor.getString(cursor.getColumnIndexOrThrow("ngay"))  // Lấy ngày là String
                     );
                     items.add(item);
@@ -88,4 +89,5 @@ public class chiTieuDAO {
         }
         return items;
     }
+
 }
