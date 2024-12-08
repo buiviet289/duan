@@ -1,10 +1,72 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:gravity="center">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    android:padding="16dp"
+    android:background="#81B9E6">
+
+    <!-- Phần chọn ngày: từ ngày và đến ngày -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="8dp"
+        android:background="#81B9E6"
+        android:padding="8dp">
+
+        <Button
+            android:id="@+id/btn_from_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Từ ngày"
+
+            app:backgroundTint="#4CAF50"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/txt_from_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="--/--/----"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_to_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Đến ngày"
+            app:backgroundTint="#4CAF50"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/txt_to_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="--/--/----"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <!-- Nút lọc -->
+    <Button
+        android:id="@+id/btn_filter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lọc"
+
+        android:textColor="#FFFFFF"
+        app:backgroundTint="#F68BAF"
+        android:layout_marginBottom="16dp"
+        android:paddingVertical="12dp"
+        android:paddingHorizontal="24dp" />
+
+    <!-- RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_viewHistory"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>

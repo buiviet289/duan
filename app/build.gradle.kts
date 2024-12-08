@@ -39,7 +39,9 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
     implementation("androidx.core:core-ktx:1.9.0")
+    implementation("androidx.multidex:multidex:2.0.1")
     implementation ("androidx.core:core:1.9.0")
+
     //implementation("com.google.android.material:material:1.9.0")
   //  implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
     implementation ("androidx.sqlite:sqlite:2.3.1")

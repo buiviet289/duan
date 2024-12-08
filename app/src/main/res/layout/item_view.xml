@@ -2,14 +2,16 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp">
+    android:layout_margin="10dp"
+
+    android:background="@drawable/darius">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#56F6BE"
-        android:padding="10dp"
-        android:orientation="vertical">
+        android:padding="16dp"
+        android:orientation="vertical"
+        android:background="#E8F5E9">
 
         <!-- Tên và giá -->
         <LinearLayout
@@ -24,16 +26,18 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Tên chi tiêu"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#333333" />
 
             <TextView
                 android:id="@+id/txt_gia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1349357"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#E57373" />
         </LinearLayout>
 
         <!-- Ghi chú -->
@@ -46,15 +50,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Ghi chú:"
-                android:textSize="14sp"
-                android:paddingRight="6dp" />
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:paddingRight="8dp" />
 
             <TextView
                 android:id="@+id/txt_ghichu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Ghi chú về chi tiêu"
-                android:textSize="14sp" />
+                android:textSize="16sp"
+                android:textColor="#616161" />
         </LinearLayout>
 
         <!-- Ngày chi tiêu -->
@@ -68,16 +74,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Ngày:"
-                android:textSize="14sp"
-                android:paddingRight="6dp" />
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:paddingRight="8dp" />
 
             <TextView
                 android:id="@+id/txt_ngay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2024-12-05"
-                android:textSize="14sp" />
+                android:textSize="16sp"
+                android:textColor="#2196F3" />
         </LinearLayout>
-
     </LinearLayout>
 </androidx.cardview.widget.CardView>

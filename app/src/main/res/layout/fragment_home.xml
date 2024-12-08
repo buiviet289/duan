@@ -29,20 +29,13 @@
                 android:id="@+id/sodu_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SỐ DƯ:"
+                android:text="SỐ DƯ: 0"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
                 android:layout_marginEnd="6dp"
                 android:textStyle="bold"/>
 
-            <TextView
-                android:id="@+id/txt_sodu"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="15000"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
+
         </LinearLayout>
 
     <!-- Spending and Income -->
@@ -71,20 +64,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Thu Nhập:"
+                    android:text="Thu Nhập: 0"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:layout_marginEnd="6dp" />
-                <TextView
-                    android:id="@+id/txt_thunhap"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="93.620"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_marginEnd="16dp" />
+
             </LinearLayout>
 
 
@@ -106,7 +91,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="170dp"
-        android:background="#FFFFFF"
+        android:background="#81B9E6"
         android:padding="10dp"
         />
     <com.google.android.material.floatingactionbutton.FloatingActionButton

@@ -2,6 +2,7 @@ package house.duan.appchitieu.adapter;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import house.duan.appchitieu.EditChiTieuActivity;
 import house.duan.appchitieu.R;
 import house.duan.appchitieu.dao.chiTieuDAO;
 import house.duan.appchitieu.model.chiTieu;
@@ -34,6 +36,12 @@ public class chiTieuAdapter extends RecyclerView.Adapter<chiTieuAdapter.ItemView
         this.chiTieuDAO = chiTieuDAO;
         this.dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
     }
+    public void updateList(List<chiTieu> newList) {
+        items.clear();
+        items.addAll(newList);
+        notifyDataSetChanged();
+    }
+
 
     @NonNull
     @Override
@@ -44,7 +52,6 @@ public class chiTieuAdapter extends RecyclerView.Adapter<chiTieuAdapter.ItemView
         return new ItemViewHolder(view);
 
     }
-
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
         chiTieu item = items.get(position);
@@ -54,54 +61,72 @@ public class chiTieuAdapter extends RecyclerView.Adapter<chiTieuAdapter.ItemView
         holder.note.setText(item.getNote() != null ? item.getNote() : "Không có ghi chú");
         holder.ngay.setText(item.getDate() != null ? item.getDate() : "Chưa chọn ngày");
 
-
-        // Sự kiện chọn ngày cho TextView date
-        holder.ngay.setOnClickListener(v -> {
-            Calendar calendar = Calendar.getInstance();
-
-            // Nếu item có ngày hiện tại, đặt làm ngày mặc định cho DatePickerDialog
-            if (item.getDate() != null) {
-                try {
-                    Date currentDate = dateFormat.parse(item.getDate());
-                    if (currentDate != null) {
-                        calendar.setTime(currentDate);
-                    }
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            int year = calendar.get(Calendar.YEAR);
-            int month = calendar.get(Calendar.MONTH);
-            int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
-
-            DatePickerDialog datePickerDialog = new DatePickerDialog(context, (view, year1, month1, dayOfMonth1) -> {
-                // Chuyển đổi ngày thành định dạng yyyy-MM-dd
-                calendar.set(year1, month1, dayOfMonth1);
-                String selectedDate = dateFormat.format(calendar.getTime());
-
-                // Hiển thị ngày đã chọn vào TextView
-                holder.ngay.setText(selectedDate);
-
-                // Cập nhật ngày vào đối tượng chiTieu
-                item.setDate(selectedDate);
-
-                // Cập nhật chi tiêu trong cơ sở dữ liệu
-                boolean updateSuccess = chiTieuDAO.updateItem(item.getId(), item.getName(), item.getPrice(), item.getNote(), selectedDate);
-
-                if (updateSuccess) {
-                    Toast.makeText(context, "Ngày chi tiêu đã được cập nhật", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(context, "Cập nhật ngày chi tiêu thất bại", Toast.LENGTH_SHORT).show();
-                }
-
-                // Cập nhật lại RecyclerView
-                notifyItemChanged(position);
-            }, year, month, dayOfMonth);
-
-            datePickerDialog.show();
+        // Sự kiện nhấn vào item để chuyển sang activity sửa
+        holder.itemView.setOnClickListener(v -> {
+            // Chuyển tới activity sửa
+            Intent intent = new Intent(context, EditChiTieuActivity.class);
+            context.startActivity(intent); // Chuyển thẳng tới activity sửa
         });
     }
+
+//    @Override
+//    public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
+//        chiTieu item = items.get(position);
+//
+//        holder.name.setText(item.getName() != null ? item.getName() : "Không có tên");
+//        holder.price.setText(String.valueOf(item.getPrice()));
+//        holder.note.setText(item.getNote() != null ? item.getNote() : "Không có ghi chú");
+//        holder.ngay.setText(item.getDate() != null ? item.getDate() : "Chưa chọn ngày");
+//
+//
+//        // Sự kiện chọn ngày cho TextView date
+//        holder.ngay.setOnClickListener(v -> {
+//            Calendar calendar = Calendar.getInstance();
+//
+//            // Nếu item có ngày hiện tại, đặt làm ngày mặc định cho DatePickerDialog
+//            if (item.getDate() != null) {
+//                try {
+//                    Date currentDate = dateFormat.parse(item.getDate());
+//                    if (currentDate != null) {
+//                        calendar.setTime(currentDate);
+//                    }
+//                } catch (ParseException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//
+//            int year = calendar.get(Calendar.YEAR);
+//            int month = calendar.get(Calendar.MONTH);
+//            int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+//
+//            DatePickerDialog datePickerDialog = new DatePickerDialog(context, (view, year1, month1, dayOfMonth1) -> {
+//                // Chuyển đổi ngày thành định dạng yyyy-MM-dd
+//                calendar.set(year1, month1, dayOfMonth1);
+//                String selectedDate = dateFormat.format(calendar.getTime());
+//
+//                // Hiển thị ngày đã chọn vào TextView
+//                holder.ngay.setText(selectedDate);
+//
+//                // Cập nhật ngày vào đối tượng chiTieu
+//                item.setDate(selectedDate);
+//
+//                // Cập nhật chi tiêu trong cơ sở dữ liệu
+//                boolean updateSuccess = chiTieuDAO.updateItem(item.getId(), item.getName(), item.getPrice(), item.getNote(), selectedDate);
+//
+//                if (updateSuccess) {
+//                    Toast.makeText(context, "Ngày chi tiêu đã được cập nhật", Toast.LENGTH_SHORT).show();
+//                } else {
+//                    Toast.makeText(context, "Cập nhật ngày chi tiêu thất bại", Toast.LENGTH_SHORT).show();
+//                }
+//
+//                // Cập nhật lại RecyclerView
+//                notifyItemChanged(position);
+//            }, year, month, dayOfMonth);
+//
+//            datePickerDialog.show();
+//        });
+//    }
+
 
     @Override
     public int getItemCount() {
@@ -139,5 +164,17 @@ public class chiTieuAdapter extends RecyclerView.Adapter<chiTieuAdapter.ItemView
             ngay = itemView.findViewById(R.id.txt_ngay);
         }
     }
+    public void removeItem(int position) {
+        chiTieu item = items.get(position);
+        boolean success = chiTieuDAO.deleteItem(item.getId());
+        if (success) {
+            items.remove(position);
+            notifyItemRemoved(position);
+            Toast.makeText(context, "Xóa thành công", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "Xóa thất bại", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
 }

@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardCornerRadius="10dp"
+    android:background="#81B9E6"
     android:layout_margin="10dp">
 
     <LinearLayout
@@ -66,13 +67,7 @@
             android:textColor="#000000" />
 
         <!-- Button để chọn ngày -->
-        <Button
-            android:id="@+id/edit_ngay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Chọn ngày"
-            android:layout_marginTop="20dp"
-            android:gravity="center"/>
+
 
         <!-- Nút thêm chi tiêu -->
         <Button

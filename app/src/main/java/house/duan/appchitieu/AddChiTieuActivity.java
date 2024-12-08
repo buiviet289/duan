@@ -37,7 +37,7 @@ public class AddChiTieuActivity extends AppCompatActivity {
         edtGhiChu = findViewById(R.id.edt_ghichu);
         txtDate = findViewById(R.id.txt_date);  // TextView hiển thị ngày
         btnAdd = findViewById(R.id.btn_add);
-        btnSelectDate = findViewById(R.id.edit_ngay);  // Button chọn ngày
+
 
         chiTieuDAO = new chiTieuDAO(this);
 
@@ -60,7 +60,7 @@ public class AddChiTieuActivity extends AppCompatActivity {
             }
         });
 
-        // Thêm chi tiêu vào cơ sở dữ liệu
+        // Thêm chi tiêu vào cơ sở dữ li//viet
         btnAdd.setOnClickListener(v -> {
             String ten = edtTen.getText().toString();
             String giaStr = edtGia.getText().toString();

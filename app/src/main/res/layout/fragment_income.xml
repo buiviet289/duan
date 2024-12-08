@@ -1,6 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#81B9E6"
     android:orientation="vertical">
 
 
@@ -9,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:background="#81B9E6"
         android:padding="8dp" />
     <TextView
         android:layout_width="match_parent"
